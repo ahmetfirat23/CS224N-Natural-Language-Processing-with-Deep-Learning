@@ -35,7 +35,12 @@ def pad_sents(sents, pad_token):
     sents_padded = []
 
     ### YOUR CODE HERE (~6 Lines)
-
+    max_len = 0
+    for sentence in sents:
+        max_len = len(sentence) if len(sentence) > max_len else max_len
+    for sentence in sents:
+        pad_length = max_len - len(sentence)
+        sents_padded.append(sentence + [pad_token] * pad_length)
 
     ### END YOUR CODE
 
